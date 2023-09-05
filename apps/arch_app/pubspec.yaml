@@ -1,0 +1,32 @@
+name: arch_app
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core_module:
+    path: ../../packages/core_module
+  mvc_module:
+    path: ../../packages/mvc_module
+  mvp_module:
+    path: ../../packages/mvp_module
+  mvvm_module:
+    path: ../../packages/mvvm_module
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/images/auth/
