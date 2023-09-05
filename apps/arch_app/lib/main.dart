@@ -1,6 +1,8 @@
 import 'package:core_module/core_module.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_module/mvc_module.dart';
+import 'package:mvp_module/mvp_module.dart';
+import 'package:mvvm_module/mvvm_module.dart';
 
 Future<void> main() async {
   await Future.wait([

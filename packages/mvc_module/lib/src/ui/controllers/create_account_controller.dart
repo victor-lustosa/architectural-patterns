@@ -2,9 +2,9 @@ import 'package:core_module/core_module.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccountController {
-  CreateAccountController({required this.useCase});
+  CreateAccountController({required IAuthUseCase useCase}) : _useCase = useCase;
 
-  final IAuthUseCase useCase;
+  final IAuthUseCase _useCase;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -18,7 +18,7 @@ class CreateAccountController {
   GlobalKey get passwordKey => _passwordKey;
 
   Future createAccount() async {
-    useCase.add(HiveAuthDTO(
+    _useCase.add(HiveAuthDTO(
       email: emailController.text,
       password: passwordController.text,
     ));

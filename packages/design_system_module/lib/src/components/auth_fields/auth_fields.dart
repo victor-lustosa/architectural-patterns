@@ -99,7 +99,7 @@ class _AuthFieldsState extends State<AuthFields> {
     Future.delayed(Duration.zero, () async {
       if(mounted){
         setState(() {
-          _isEmailValid = value;
+          _isPasswordValid = value;
         });
       }
     });

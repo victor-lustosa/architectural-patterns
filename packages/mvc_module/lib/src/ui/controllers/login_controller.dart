@@ -1,12 +1,10 @@
 import 'package:core_module/core_module.dart';
 import 'package:flutter/material.dart';
 
-import '../views/home.dart';
-
 class LoginController {
-  LoginController({required this.useCase});
+  LoginController({required IAuthUseCase useCase}) : _useCase = useCase;
 
-  final IAuthUseCase useCase;
+  final IAuthUseCase _useCase;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -20,7 +18,7 @@ class LoginController {
   GlobalKey get passwordKey => _passwordKey;
 
   Future logIn() async {
-    HiveAuthDTO? credentials = await useCase.get(
+    HiveAuthDTO? credentials = await _useCase.get(
       emailController.text,
       passwordController.text,
     );
@@ -30,7 +28,7 @@ class LoginController {
       );
       return '';
     } else {
-      return 'login invalido';
+      return 'login inválido';
     }
   }
 
