@@ -19,10 +19,7 @@ class CreateAccountPresenter {
   GlobalKey get passwordKey => _passwordKey;
 
   Future createAccount() async {
-    _useCase.add(HiveAuthDTO(
-      email: emailController.text,
-      password: passwordController.text,
-    ));
+    _useCase.add('auth', HiveAuthDTO(email: emailController.text, password: passwordController.text));
     Future.delayed(const Duration(microseconds: 300), () {
       Modular.to.navigate('/login');
     });

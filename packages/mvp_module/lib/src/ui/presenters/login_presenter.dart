@@ -18,14 +18,9 @@ class LoginPresenter {
   GlobalKey get passwordKey => _passwordKey;
 
   Future logIn() async {
-    HiveAuthDTO? credentials = await _useCase.get(
-      emailController.text,
-      passwordController.text,
-    );
+    HiveAuthDTO? credentials = await _useCase.get(emailController.text, passwordController.text);
     if (credentials != null) {
-      Modular.to.navigate(
-        '/home',
-      );
+      Modular.to.pushNamed('/home');
       return '';
     } else {
       return 'login inválido';
@@ -33,7 +28,8 @@ class LoginPresenter {
   }
 
   logout() {
-    Modular.to.navigate('/login');
+    _useCase.delete('auth');
+    Modular.to.pop();
   }
 
   toCreateAccount() {

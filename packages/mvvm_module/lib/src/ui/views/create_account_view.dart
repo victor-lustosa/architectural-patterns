@@ -39,9 +39,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                   Container(
                     margin: const EdgeInsets.only(top: 60, bottom: 32),
                     child: const Image(
-                      image: AssetImage(
-                        AppImages.logoLoginImage,
-                      ),
+                      image: AssetImage(AppImages.logoLoginImage),
                       fit: BoxFit.cover,
                       width: 74,
                     ),
@@ -49,10 +47,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                   Container(
                     margin: const EdgeInsets.only(bottom: 24),
                     child: Text('Criar conta',
-                        style: AppFonts.defaultFont(
-                          color: AppColors.grey10,
-                          fontSize: 22,
-                        )),
+                        style: AppFonts.defaultFont(color: AppColors.grey10, fontSize: 22)),
                   ),
                   AuthFields(controller: viewModel),
                   Container(

@@ -26,19 +26,17 @@ class HiveAuthDatasource implements IAuthDatasource {
 
   @override
   Future<HiveAuthDTO?> get(String email, String password) async {
-    var result = box.values
-        .where((entity) => entity.password == password  && entity.email == email)
-        .toList();
-      return result.isNotEmpty ? result[0] : null;
+    var result = box.values.where((entity) => entity.password == password  && entity.email == email).toList();
+    return result.isNotEmpty ? result[0] : null;
   }
 
   @override
-  Future<void> add(String id, data) async {
-    box.put(id, data);
+  Future<void> add({String? path, data}) async {
+    box.put(path, data);
   }
 
   @override
-  Future<void> delete(String id) async {
-    box.delete(id);
+  Future<void> delete(path) async {
+    box.delete(path);
   }
 }

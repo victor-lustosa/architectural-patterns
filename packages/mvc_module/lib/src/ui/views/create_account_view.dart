@@ -29,10 +29,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   color: AppColors.darkGreen,
-                  icon: const Icon(
-                    size: 30,
-                    Icons.arrow_back_rounded,
-                  ),
+                  icon: const Icon(size: 30, Icons.arrow_back_rounded),
                 ),
               ),
               Column(

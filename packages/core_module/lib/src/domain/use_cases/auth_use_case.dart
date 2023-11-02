@@ -3,6 +3,6 @@ import '../../../core_module.dart';
 
 abstract class IAuthUseCase {
   Future get(String email, String password);
-  Future add(HiveAuthDTO data);
-  Future delete(HiveAuthDTO data);
+  Future add(String path, HiveAuthDTO data);
+  Future delete(String email);
 }

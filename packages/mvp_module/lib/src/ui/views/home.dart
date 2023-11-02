@@ -46,9 +46,7 @@ class _HomeState extends State<Home> implements HomeViewPresenter{
                 backgroundColor: AppColors.warning,
                 shadowColor: AppColors.grey0,
                 foregroundColor: AppColors.white,
-                child: const Text(
-                  "sair",
-                ),
+                child: const Text("sair"),
               ),
             ),
           ),
@@ -56,5 +54,4 @@ class _HomeState extends State<Home> implements HomeViewPresenter{
       ),
     );
   }
-
 }

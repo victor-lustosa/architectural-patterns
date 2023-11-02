@@ -5,8 +5,10 @@ import 'package:mvp_module/mvp_module.dart';
 import 'package:mvvm_module/mvvm_module.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Future.wait([
-    HiveAuthDatasource.hiveInit()
+    IsarAuthDatasource.isarInit(),
+    //HiveAuthDatasource.hiveInit()
   ]);
   return runApp(
     ModularApp(
@@ -32,6 +34,6 @@ class AppWidget extends StatelessWidget {
 class AppModule extends Module {
   @override
   void routes(r) {
-    r.module('/', module: MVCModule());
+    r.module('/', module: MVPModule());
   }
 }

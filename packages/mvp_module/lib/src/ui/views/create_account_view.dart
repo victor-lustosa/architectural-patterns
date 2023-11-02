@@ -11,10 +11,10 @@ class CreateAccountView extends StatefulWidget {
   State<CreateAccountView> createState() => _CreateAccountViewState();
 }
 
-class _CreateAccountViewState extends State<CreateAccountView>
-    implements CreateAccountViewPresenter {
-  final CreateAccountPresenter presenter =
-      Modular.get<CreateAccountPresenter>();
+class _CreateAccountViewState extends State<CreateAccountView> implements CreateAccountViewPresenter {
+
+  final CreateAccountPresenter presenter = Modular.get<CreateAccountPresenter>();
+
   @override
   Future createAccount() async {
     await presenter.createAccount();
@@ -36,10 +36,7 @@ class _CreateAccountViewState extends State<CreateAccountView>
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   color: AppColors.darkGreen,
-                  icon: const Icon(
-                    size: 30,
-                    Icons.arrow_back_rounded,
-                  ),
+                  icon: const Icon(size: 30, Icons.arrow_back_rounded),
                 ),
               ),
               Column(

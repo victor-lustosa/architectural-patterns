@@ -8,17 +8,17 @@ class AuthRepository implements IAuthRepository{
 
   AuthRepository({required this.datasource});
   @override
- Future add(String id, data) async{
-   datasource.add(id, data);
+ Future add(String path, data) async{
+   datasource.add(data: data, path: path);
   }
 
   @override
-  Future<HiveAuthDTO?> get(String email, String password) async{
+  Future get(String email, String password) async{
    return datasource.get(email, password);
   }
 
   @override
-  Future<void> delete(String id) async {
-    datasource.delete(id);
+  Future<void> delete(String path) async {
+    datasource.delete(path);
   }
 }

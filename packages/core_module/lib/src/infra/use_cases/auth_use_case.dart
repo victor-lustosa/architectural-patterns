@@ -9,18 +9,17 @@ class AuthUseCase implements IAuthUseCase{
 
   AuthUseCase({required this.repository});
   @override
-  Future add(HiveAuthDTO data) async{
-    repository.add(data.email, data);
+  Future add(String path, HiveAuthDTO data) async{
+    repository.add(path, data);
   }
 
   @override
-  Future<HiveAuthDTO?> get(String email, String password) async{
+  Future get(String email, String password) async{
     return repository.get(email, password);
   }
 
   @override
-  Future delete(data) async {
-    repository.delete(data.email);
+  Future delete(String path) async {
+    repository.delete(path);
   }
-
 }
