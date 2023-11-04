@@ -2,6 +2,7 @@
 
 import 'package:core_module/core_module.dart';
 
+import '../../domain/entities/auth_entity.dart';
 import '../../domain/repositories/auth_repository.dart';
 
 class AuthUseCase implements IAuthUseCase{
@@ -9,17 +10,17 @@ class AuthUseCase implements IAuthUseCase{
 
   AuthUseCase({required this.repository});
   @override
-  Future add(String path, HiveAuthDTO data) async{
+  Future<void> add(String path, AuthModel data) async{
     repository.add(path, data);
   }
 
   @override
-  Future get(String email, String password) async{
+  Future<AuthEntity?> get(String email, String password) async{
     return repository.get(email, password);
   }
 
   @override
-  Future delete(String path) async {
+  Future<void> delete(String path) async {
     repository.delete(path);
   }
 }

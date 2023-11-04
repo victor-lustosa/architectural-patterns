@@ -5,11 +5,7 @@ import 'package:mvp_module/mvp_module.dart';
 import 'package:mvvm_module/mvvm_module.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Future.wait([
-    IsarAuthDatasource.isarInit(),
-    //HiveAuthDatasource.hiveInit()
-  ]);
+  await HiveAuthDatasource.init();
   return runApp(
     ModularApp(
       module: AppModule(),
@@ -23,6 +19,7 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Modular.setInitialRoute(AppModule.mvpRoute);
     return MaterialApp.router(
       theme: lightTheme,
       debugShowCheckedModeBanner: false,
@@ -32,8 +29,16 @@ class AppWidget extends StatelessWidget {
 }
 
 class AppModule extends Module {
+  static const String initialRoute = '/';
+  static const String mvvmRoute = '/mvvm/';
+  static const String mvcRoute = '/mvc/';
+  static const String mvpRoute = '/mvp/';
+
   @override
   void routes(r) {
-    r.module('/', module: MVPModule());
+    r.module(initialRoute, module: MVPModule());
+    r.module(mvpRoute, module: MVPModule());
+    r.module(mvvmRoute, module: MVVMModule());
+    r.module(mvcRoute, module: MVCModule());
   }
 }

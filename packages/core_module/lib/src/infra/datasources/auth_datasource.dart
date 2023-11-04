@@ -1,15 +1,15 @@
-import 'package:core_module/core_module.dart';
+import '../../domain/entities/auth_entity.dart';
 
-abstract class IAuthDatasource
-    implements IGetAuthDatasource, IAddAuthDatasource, IDeleteAuthDatasource {}
+abstract class IAuthDatasource implements IGetAuthDatasource, IAddAuthDatasource, IDeleteAuthDatasource {}
 
 abstract class IGetAuthDatasource {
-  Future get(String email, String password);
+  Future<AuthEntity?> get(String email, String password);
 }
 
 abstract class IAddAuthDatasource {
-  Future<void> add({String? path, required data});
+  Future<void> add(String path,dynamic data);
 }
+
 abstract class IDeleteAuthDatasource {
-  Future<void> delete(path);
+  Future<void> delete(String path);
 }

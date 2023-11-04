@@ -1,18 +1,15 @@
-
 import 'package:hive_flutter/adapters.dart';
-
+import '../../../core_module.dart';
 import '../../infra/datasources/auth_datasource.dart';
-import '../../infra/models/hive_dtos/hive_auth_dto.dart';
 
 class HiveAuthDatasource implements IAuthDatasource {
   late Box<HiveAuthDTO> box;
-  List<String> params = [];
 
   HiveAuthDatasource() {
     box = Hive.box<HiveAuthDTO>('auth');
   }
 
-  static Future hiveInit() async {
+  static Future init() async {
     await Hive.initFlutter();
     _allAdapters();
     await Future.wait<void>([
@@ -25,14 +22,14 @@ class HiveAuthDatasource implements IAuthDatasource {
   }
 
   @override
-  Future<HiveAuthDTO?> get(String email, String password) async {
+  Future<AuthModel?> get(String email, String password) async {
     var result = box.values.where((entity) => entity.password == password  && entity.email == email).toList();
-    return result.isNotEmpty ? result[0] : null;
+    return result.isNotEmpty ? HiveAuthDTO.fromHiveToModel(result[0]) : null;
   }
 
   @override
-  Future<void> add({String? path, data}) async {
-    box.put(path, data);
+  Future<void> add(String path, data) async {
+    box.put(path, HiveAuthDTO.fromEntityToHive(data));
   }
 
   @override

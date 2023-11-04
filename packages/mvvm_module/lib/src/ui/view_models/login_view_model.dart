@@ -19,9 +19,9 @@ class LoginViewModel {
   GlobalKey get passwordKey => _passwordKey;
 
   Future logIn() async {
-    HiveAuthDTO? credentials = await _useCase.get(emailController.text, passwordController.text);
+    AuthModel? credentials = await _useCase.get(emailController.text, passwordController.text);
     if (credentials != null) {
-      Modular.to.navigate('/home');
+      Modular.to.pushNamed('/home');
       return '';
     } else {
       return 'login inválido';
@@ -29,7 +29,7 @@ class LoginViewModel {
   }
 
   logout() {
-    _useCase.delete(emailController.text);
+    _useCase.delete('auth');
     Modular.to.pop();
   }
 
@@ -38,7 +38,7 @@ class LoginViewModel {
   }
 
   Future createAccount() async {
-    _useCase.add('auth',HiveAuthDTO(email: emailController.text, password: passwordController.text));
+    _useCase.add('auth',AuthModel(email: emailController.text, password: passwordController.text));
     Future.delayed(const Duration(microseconds: 300), () {
       Modular.to.navigate('/login');
     });

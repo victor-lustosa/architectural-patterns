@@ -18,7 +18,7 @@ class LoginPresenter {
   GlobalKey get passwordKey => _passwordKey;
 
   Future logIn() async {
-    HiveAuthDTO? credentials = await _useCase.get(emailController.text, passwordController.text);
+    AuthModel? credentials = await _useCase.get(emailController.text, passwordController.text);
     if (credentials != null) {
       Modular.to.pushNamed('/home');
       return '';
