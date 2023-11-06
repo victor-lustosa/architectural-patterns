@@ -11,8 +11,7 @@ class CreateAccountView extends StatefulWidget {
 }
 
 class _CreateAccountViewState extends State<CreateAccountView> {
-  final CreateAccountController controller =
-      Modular.get<CreateAccountController>();
+  final CreateAccountController controller = Modular.get<CreateAccountController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

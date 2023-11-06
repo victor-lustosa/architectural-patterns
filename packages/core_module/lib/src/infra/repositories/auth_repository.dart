@@ -1,6 +1,5 @@
-import 'package:core_module/core_module.dart';
-import 'package:core_module/src/domain/repositories/auth_repository.dart';
 
+import 'package:core_module/src/domain/repositories/auth_repository.dart';
 import '../../domain/entities/auth_entity.dart';
 import '../datasources/auth_datasource.dart';
 
@@ -8,6 +7,7 @@ class AuthRepository implements IAuthRepository{
   final IAuthDatasource datasource;
 
   AuthRepository({required this.datasource});
+
   @override
  Future<void> add(String path, data) async{
    datasource.add(path, data);
