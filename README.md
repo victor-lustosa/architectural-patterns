@@ -12,7 +12,7 @@ Além disso, o projeto demonstra como aplicar os princípios SOLID para construi
 
 ## 📂 Estrutura do Projeto
 O projeto está organizado em diferentes pastas, cada uma representando uma abordagem arquitetural:
-
+```text
 .
 ├── apps
 │   └── arch_app                  # Aplicação principal que utiliza os módulos
@@ -23,7 +23,17 @@ O projeto está organizado em diferentes pastas, cada uma representando uma abor
 │   ├── mvc_module               # Implementação do padrão MVC
 │   ├── mvp_module               # Implementação do padrão MVP
 │   └── mvvm_module              # Implementação do padrão MVVM
-
+.
+├── apps
+│   └── arch_app                  # Aplicação principal que utiliza os módulos
+│
+├── packages
+│   ├── core_module              # Lógica de negócio, serviços e utilitários compartilhados
+│   ├── design_system_module     # Componentes visuais reutilizáveis (Design System)
+│   ├── mvc_module               # Implementação do padrão MVC
+│   ├── mvp_module               # Implementação do padrão MVP
+│   └── mvvm_module              # Implementação do padrão MVVM
+```
 Cada uma contém uma implementação funcional utilizando o mesmo exemplo base, facilitando a comparação entre os padrões.
 
 ## 📚 Conteúdo Abordado nas Palestras
